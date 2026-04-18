@@ -8,3 +8,5 @@
 /OrdersService
 /ProductsServices
 /.vs/ProjectEvaluation
+/AuthService/bin/Debug/net10.0
+/AuthService/obj

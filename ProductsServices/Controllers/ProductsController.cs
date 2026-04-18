@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ProductsServices.Controllers
@@ -7,7 +8,8 @@ namespace ProductsServices.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        [HttpGet]
+        [Authorize]
+        [HttpGet("GetProducts")]
         public IActionResult GetProducts()
         {
             var products = new[]

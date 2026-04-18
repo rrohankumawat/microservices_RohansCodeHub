@@ -5,17 +5,22 @@
       {
         "Path": "ApiGateway\\ApiGateway.csproj",
         "Action": "Start",
-        "DebugTarget": "https"
+        "DebugTarget": "http"
       },
       {
         "Path": "OrdersService\\OrdersService.csproj",
         "Action": "Start",
-        "DebugTarget": "https"
+        "DebugTarget": "http"
       },
       {
         "Path": "ProductsServices\\ProductsServices.csproj",
         "Action": "Start",
-        "DebugTarget": "https"
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "AuthService\\AuthService.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
       }
     ]
   }
