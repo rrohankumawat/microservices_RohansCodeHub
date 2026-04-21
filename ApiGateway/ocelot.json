@@ -43,6 +43,18 @@
       ],
       "UpstreamPathTemplate": "/login",
       "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/Register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5179
+        }
+      ],
+      "UpstreamPathTemplate": "/register",
+      "UpstreamHttpMethod": [ "POST" ]
     }
   ],
   "GlobalConfiguration": {

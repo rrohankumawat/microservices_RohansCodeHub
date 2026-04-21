@@ -1,8 +1,15 @@
+using AuthService.Data;
+using AuthService.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<AuthDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnection")));
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IAuthService, AuthorizationService>();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 

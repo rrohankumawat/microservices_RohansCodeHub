@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AuthService.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -10,15 +11,21 @@ namespace AuthService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController(IAuthService service) : ControllerBase
     {
 
 
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            // For demonstration, we are using hardcoded credentials. In a real application, you should validate against a database.
-            if (request.Email == "rohankumawat@gmail.com" && request.Password == "rohan123")
+            var data = await service.GetUserByEmail(request.Email);
+
+            if (data == null)
+            {
+                return NotFound( new { Message = "User not found" });
+            }
+
+            if (data.Password == request.Password)
             {
                 var token = GenerateToken(request.Email);
                 return Ok(new { Token = token });
@@ -47,6 +54,18 @@ namespace AuthService.Controllers
 
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        [HttpPost("Register")]
+        public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+        {
+            var result = await service.RegisterUser(request.Email, request.Password);
+            if (result)
+            {
+                return Ok(new { Message = "User registered successfully" });
+            }
+            return BadRequest(new { Message = "User already exists" });
+
         }
     }
 }
