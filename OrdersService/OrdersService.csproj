@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="protos\**" />
-    <Content Remove="protos\**" />
-    <EmbeddedResource Remove="protos\**" />
-    <None Remove="protos\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.34.1" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.80.0" />
     <PackageReference Include="Grpc.Net.Client" Version="2.80.0" />
@@ -37,6 +30,8 @@
 
   <ItemGroup>
     <Folder Include="Entities\" />
+	  <Protobuf Include="protos\product.proto" GrpcServices="Client" />
+
   </ItemGroup>
 
 </Project>
