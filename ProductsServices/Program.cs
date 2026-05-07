@@ -15,6 +15,7 @@ builder.WebHost.ConfigureKestrel(options =>
         o.UseHttps();
     });
 });
+
 builder.Services.AddGrpc();
 
 builder.Services.AddAuthentication("Bearer")
