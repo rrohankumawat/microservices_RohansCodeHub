@@ -1,13 +1,14 @@
+using OrdersService.Interceptors;
 using OrdersService.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddHttpContextAccessor();
 // Add services to the container.
 builder.Services.AddGrpcClient<ProductProtoService.ProductProtoServiceClient>(o =>
 {
     o.Address = new Uri("https://localhost:7146");
-});
+}).AddInterceptor<JwtInterceptor>(); ;
 
 builder.Services.AddControllers();
 builder.Services.AddAuthentication("Bearer")
@@ -25,6 +26,7 @@ builder.Services.AddAuthentication("Bearer")
         };
     });
 builder.Services.AddScoped<OrderManager>();
+builder.Services.AddTransient<JwtInterceptor>();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
