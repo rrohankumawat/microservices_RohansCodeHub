@@ -2,11 +2,11 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/Orders/GetOrders",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5008
+          "Port": 7055
         }
       ],
       "UpstreamPathTemplate": "/orders/GetOrders",
@@ -18,11 +18,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/Orders/GetProduct",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5008
+          "Port": 7055
         }
       ],
       "UpstreamPathTemplate": "/orders/GetProduct",
@@ -34,11 +34,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/Products/GetProducts",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5285
+          "Port": 7146
         }
       ],
       "UpstreamPathTemplate": "/products/GetProducts",
@@ -50,11 +50,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/Auth/Login",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5179
+          "Port": 7011
         }
       ],
       "UpstreamPathTemplate": "/login",
@@ -62,11 +62,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/Auth/Register",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5179
+          "Port": 7011
         }
       ],
       "UpstreamPathTemplate": "/register",
@@ -74,6 +74,6 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5064"
+    "BaseUrl": "https://localhost:7039"
   }
 }
