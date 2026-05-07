@@ -30,7 +30,6 @@
 
   <ItemGroup>
     <Folder Include="Entities\" />
-	  <Protobuf Include="protos\product.proto" GrpcServices="Client" />
 
   </ItemGroup>
 

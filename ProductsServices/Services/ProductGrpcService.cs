@@ -1,25 +1,19 @@
-﻿using Grpc.Core;
-using Microsoft.AspNetCore.Authorization;
-using ProductsServices.protos;
+﻿using ProductsServices.protos;
 
 namespace ProductsServices.Services
 {
-    [Authorize]
-    public class ProductGrpcService
-    : ProductProtoService.ProductProtoServiceBase
+    public class ProductGrpcService : ProductProtoService.ProductProtoServiceBase
     {
-        public override Task<ProductResponse> GetProductById(
-            ProductRequest request,
-            ServerCallContext context)
+        public async Task<ProductResponse> GetProductById (ProductRequest model)
         {
-            var response = new ProductResponse
+            var response = new ProductResponse()
             {
-                ProductId = request.ProductId,
+                ProductId = model.ProductId,
                 Name = "Laptop",
-                Price = 55000
+                Price = 5000
             };
 
-            return Task.FromResult(response);
+            return response;
         }
     }
 }

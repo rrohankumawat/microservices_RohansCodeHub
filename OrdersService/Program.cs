@@ -1,18 +1,9 @@
-using OrdersService.Interceptors;
-using OrdersService.protos;
-using OrdersService.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddGrpcClient<ProductProtoService.ProductProtoServiceClient>(o =>
-{
-    o.Address = new Uri("https://localhost:7146");
-}).AddInterceptor<JwtInterceptor>();
+
 
 builder.Services.AddControllers();
-builder.Services.AddHttpContextAccessor();
-builder.Services.AddScoped<OrderManager>();
-builder.Services.AddTransient<JwtInterceptor>();
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
