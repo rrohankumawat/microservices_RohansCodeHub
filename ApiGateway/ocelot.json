@@ -17,7 +17,7 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/api/Orders/GetProduct",
+      "DownstreamPathTemplate": "/api/Orders/GetProductById",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -25,7 +25,7 @@
           "Port": 7055
         }
       ],
-      "UpstreamPathTemplate": "/orders/GetProduct",
+      "UpstreamPathTemplate": "/orders/GetProductById",
       "UpstreamHttpMethod": [ "Get" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",

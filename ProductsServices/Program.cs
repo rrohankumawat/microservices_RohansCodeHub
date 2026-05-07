@@ -1,3 +1,4 @@
+using ProductsServices.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,8 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-
-
 
 builder.Services.AddGrpc();
 
@@ -28,7 +27,7 @@ builder.Services.AddAuthentication("Bearer")
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
-
+app.MapGrpcService<ProductGrpcService>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
