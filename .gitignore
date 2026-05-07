@@ -4,9 +4,13 @@
 
 /.vs/ApiGateway.slnx/FileContentIndex
 /.vs/ApiGateway.slnx
-/ApiGateway
-/OrdersService
-/ProductsServices
+/ApiGateway/obj
+/ApiGateway/bin
+/OrdersService/obj
+/OrdersService/bin
+/ProductsServices/obj
+/ProductsServices/bin
 /.vs/ProjectEvaluation
 /AuthService/bin/Debug/net10.0
 /AuthService/obj
+/AuthService/bin
