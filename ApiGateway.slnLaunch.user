@@ -15,7 +15,7 @@
       {
         "Path": "ProductsServices\\ProductsServices.csproj",
         "Action": "Start",
-        "DebugTarget": "http"
+        "DebugTarget": "https"
       },
       {
         "Path": "AuthService\\AuthService.csproj",

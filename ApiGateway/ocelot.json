@@ -17,6 +17,22 @@
       }
     },
     {
+      "DownstreamPathTemplate": "/api/Orders/GetProduct",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5008
+        }
+      ],
+      "UpstreamPathTemplate": "/orders/GetProduct",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
       "DownstreamPathTemplate": "/api/Products/GetProducts",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
