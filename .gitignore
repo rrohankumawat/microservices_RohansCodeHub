@@ -4,6 +4,13 @@
 
 /.vs/ApiGateway.slnx/FileContentIndex
 /.vs/ApiGateway.slnx
+/ApiGateway
+/ApiGateway/obj
+/ApiGateway/bin
+/OrdersService/obj
+/OrdersService/bin
+/ProductsServices/obj
+/ProductsServices/bin
 /ApiGateway/obj
 /ApiGateway/bin
 /OrdersService/obj

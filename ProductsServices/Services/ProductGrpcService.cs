@@ -9,8 +9,8 @@ namespace ProductsServices.Services
     {
         public override async Task<ProductResponse> GetProductById(ProductRequest model, ServerCallContext context)
         {
-            var response = new ProductResponse
-            {
+
+            var response = new ProductResponse { 
                 ProductId = model.ProductId,
                 Name = "Laptop",
                 Price = 5000

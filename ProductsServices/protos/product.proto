@@ -5,12 +5,14 @@ option csharp_namespace = "ProductsServices.protos";
 package product;
 
 service ProductProtoService {
+
 	rpc GetProductById (ProductRequest) returns (ProductResponse);
+
 }
 
 
 message ProductRequest {
-	int32 productId = 1;
+	int32 productId = 1; 
 }
 
 message ProductResponse {
