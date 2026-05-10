@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option csharp_namespace = "OrdersService.protos";
+option csharp_namespace = "OrdersService.protos.v1";
 
-package product;
+package product.v1;
 
 service ProductProtoService {
 

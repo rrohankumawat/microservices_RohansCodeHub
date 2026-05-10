@@ -6,7 +6,7 @@ namespace OrdersService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrdersController(OrderManager _service) : ControllerBase
+    public class OrdersController(OrderManager _service, OrderManager_v2 _service_v2) : ControllerBase
     {
         [HttpGet("GetOrders")]
         public IActionResult GetOrders()
@@ -24,6 +24,13 @@ namespace OrdersService.Controllers
         public async Task<IActionResult> GetProductById(int id)
         {
             return Ok(await _service.GetProductById(id));
+        }
+
+
+        [HttpGet("GetProductByIdV2")]
+        public async Task<IActionResult> GetProductByIdV2(int id)
+        {
+            return Ok(await _service_v2.GetProductById(id));
         }
 
     }

@@ -1,6 +1,6 @@
 ﻿using Grpc.Core;
 using Microsoft.AspNetCore.Authorization;
-using ProductsServices.protos;
+using ProductsServices.protos.v1;
 
 namespace ProductsServices.Services
 {

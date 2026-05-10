@@ -1,16 +1,26 @@
 using OrdersService.Interceptors;
-using OrdersService.protos;
 using OrdersService.Services;
+using Grpc.Net.ClientFactory;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddGrpcClient<ProductProtoService.ProductProtoServiceClient>(x =>
-    x.Address = new Uri("https://localhost:7146")
+builder.Services.AddGrpcClient<
+    OrdersService.protos.v1.ProductProtoService.ProductProtoServiceClient>(
+    "ProductV1",
+    o => { o.Address = new Uri("https://localhost:7146"); }
+).AddInterceptor<JwtInterceptors>();
+
+
+builder.Services.AddGrpcClient<
+    OrdersService.protos.v2.ProductProtoService.ProductProtoServiceClient>(
+    "ProductV2",
+    o => { o.Address = new Uri("https://localhost:7146"); }
 ).AddInterceptor<JwtInterceptors>();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<OrderManager>();
+builder.Services.AddScoped<OrderManager_v2>();
 builder.Services.AddTransient<JwtInterceptors>();
 
 builder.Services.AddControllers();
